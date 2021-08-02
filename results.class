@@ -1,0 +1,170 @@
+package quizApp;
+
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import java.awt.Color;
+import javax.swing.JPanel;
+
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class results {
+
+private JFrame frmQuizmeapp;
+
+/**
+* Launch the application.
+*/
+public static void main(String[] args) {
+EventQueue.invokeLater(new Runnable() {
+public void run() {
+try {
+results window = new results();
+window.frmQuizmeapp.setVisible(true);
+} catch (Exception e) {
+e.printStackTrace();
+}
+}
+});
+}
+
+
+/**
+* Create the application.
+*/
+public results() {
+initialize();
+}
+
+/**
+* Initialize the contents of the frame.
+*/
+
+private void initialize() {
+  
+  String file1 = "cheering.wav";
+    music mus = new music();
+    mus.playmusic(file1);
+    
+
+
+      Quizz.result = (int)((Quizz.correctGuesses/(double)Quizz.total_questions)*100);
+
+
+frmQuizmeapp = new JFrame();
+frmQuizmeapp.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\bough\\Downloads\\images-removebg-preview.png"));
+frmQuizmeapp.setTitle("QuizMe-App");
+frmQuizmeapp.setBackground(Color.GRAY);
+frmQuizmeapp.setBounds(300, 150, 722, 450);
+frmQuizmeapp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frmQuizmeapp.getContentPane().setLayout(null);
+
+JPanel panel = new JPanel();
+panel.setBackground(new Color(128, 128, 128));
+panel.setBounds(0, -13, 731, 431);
+frmQuizmeapp.getContentPane().add(panel);
+panel.setLayout(null);
+JLabel lblNewLabel_8 = new JLabel("");
+lblNewLabel_8.setIcon(new ImageIcon("C:\\Users\\bough\\Desktop\\play-again.png"));
+lblNewLabel_8.setBounds(228, 340, 177, 72);
+panel.add(lblNewLabel_8);
+lblNewLabel_8.addMouseListener(new MouseAdapter() {
+	public void mouseEntered(MouseEvent evt) {
+		lblNewLabel_8.setIcon(new ImageIcon("C:\\Users\\bough\\Downloads\\play-again2.png"));
+	}
+	public void mouseExited(MouseEvent evt) {
+		lblNewLabel_8.setIcon(new ImageIcon("C:\\Users\\bough\\Downloads\\play-again.png"));
+	}
+@Override
+public void mouseClicked(MouseEvent arg0) {
+	quizApp.main(null);
+	frmQuizmeapp.setVisible(false);
+	
+}
+});
+JLabel lblNewLabel_7 = new JLabel("");
+lblNewLabel_7.setIcon(new ImageIcon("C:\\Users\\bough\\Desktop\\6ob.gif"));
+lblNewLabel_7.setBounds(486, 11, 227, 372);
+panel.add(lblNewLabel_7);
+JLabel lblNewLabel_6 = new JLabel("");
+lblNewLabel_6.setIcon(new ImageIcon("C:\\Users\\bough\\Desktop\\6ob.gif"));
+lblNewLabel_6.setBounds(0, 11, 177, 372);
+panel.add(lblNewLabel_6);
+JLabel lblNewLabel_5 = new JLabel("");
+lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\bough\\Desktop\\6ob.gif"));
+lblNewLabel_5.setBounds(187, 11, 320, 420);
+panel.add(lblNewLabel_5);
+JTextField percentage = new JTextField ();
+percentage.setBounds(259, 249, 160, 80);
+panel.add(percentage);
+percentage.setText(Quizz.result+"%");
+percentage.setBackground(new Color(255,255,255));
+percentage.setForeground(new Color(0, 0, 0));
+percentage.setFont(new Font("MV Boli",Font.BOLD,30));
+percentage.setBorder(BorderFactory.createTitledBorder("your percentage is : "));
+percentage.setHorizontalAlignment(JTextField.CENTER);
+percentage.setEditable(false);
+
+JTextField numberright = new JTextField ();
+numberright.setBounds(259, 156, 160, 82);
+panel.add(numberright);
+
+numberright.setText("("+Quizz.correctGuesses+"/"+Quizz.total_questions+")");
+numberright.setBackground(new Color(255,255,255));
+numberright.setForeground(new Color(0, 0, 0));
+numberright.setFont(new Font("MV Boli",Font.BOLD,25));
+numberright.setBorder(BorderFactory.createTitledBorder("number of right answers :"));
+numberright.setHorizontalAlignment(JTextField.CENTER);
+numberright.setEditable(false);
+
+JLabel label = new JLabel("Your Results Are :");
+label.setForeground(new Color(0, 0, 0));
+label.setFont(new Font("Tempus Sans ITC", Font.BOLD, 20));
+label.setBounds(260, 99, 401, 44);
+panel.add(label);
+
+JLabel lblNewLabel_1 = new JLabel("Results");
+lblNewLabel_1.setFont(new Font("Edwardian Script ITC", Font.BOLD | Font.ITALIC, 99));
+lblNewLabel_1.setBounds(195, 11, 274, 102);
+panel.add(lblNewLabel_1);
+
+JLabel lblNewLabel = new JLabel("Results");
+lblNewLabel.setBackground(new Color(255, 182, 193));
+lblNewLabel.setForeground(new Color(255, 255, 255));
+lblNewLabel.setFont(new Font("Edwardian Script ITC", Font.BOLD | Font.ITALIC, 99));
+lblNewLabel.setIcon(new ImageIcon("C:\\Users\\ProBook\\Desktop\\report_card_127px.png"));
+lblNewLabel.setBounds(198, 11, 481, 102);
+panel.add(lblNewLabel);
+
+JLabel lblNewLabel_2 = new JLabel("Your Results Are :");
+lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\ProBook\\Desktop\\grades_50px.png"));
+lblNewLabel_2.setForeground(new Color(255, 255, 255));
+lblNewLabel_2.setFont(new Font("Tempus Sans ITC", Font.BOLD, 20));
+lblNewLabel_2.setBounds(260, 99, 401, 44);
+panel.add(lblNewLabel_2);
+
+JLabel lblNewLabel_3 = new JLabel("");
+lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\bough\\Desktop\\result.jpg"));
+lblNewLabel_3.setBounds(0, 13, 749, 418);
+panel.add(lblNewLabel_3);
+
+JLabel lblNewLabel_4 = new JLabel("");
+lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\bough\\Downloads\\grades_50px.png"));
+lblNewLabel_4.setBounds(228, 126, 50, 44);
+panel.add(lblNewLabel_4);
+JLabel label_1 = new JLabel("New label");
+label_1.setBounds(99, 315, 46, 14);
+panel.add(label_1);
+JLabel label_2 = new JLabel("New label");
+label_2.setBounds(99, 290, 46, 14);
+panel.add(label_2);
+}
+}
