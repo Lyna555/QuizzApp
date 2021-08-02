@@ -1,0 +1,31 @@
+package quizApp;
+
+import java.io.File;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
+public class music {
+    void playmusic(String loc) {
+    try {
+    File file = new File(loc);
+    if(file.exists()) {
+    AudioInputStream audio = AudioSystem.getAudioInputStream(file);
+       Clip clip = AudioSystem.getClip();
+    clip.open(audio);
+    clip.start();
+    if(loc=="quizz.wav") {
+    clip.loop(Clip.LOOP_CONTINUOUSLY);
+    }
+   
+    }
+    }
+    catch(Exception e) {
+    e.printStackTrace();
+    }
+   
+    }
+   
+}
+
