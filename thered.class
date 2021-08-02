@@ -1,0 +1,192 @@
+package quizApp;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.Color;
+
+import javax.swing.JLabel;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.ImageIcon;
+
+import javax.swing.UIManager;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.awt.Toolkit;
+import javax.swing.JRadioButton;
+
+public class thered {
+
+public JFrame frmQuizmeapp;
+protected Object show;
+
+/**
+* Launch the application.
+*/
+public static void page2(String[] args) {
+EventQueue.invokeLater(new Runnable() {
+public void run() {
+try {
+UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+UIManager.setLookAndFeel("com.jtattoo.plaf.aluminium.AluminiumLookAndFeel");
+thered window = new thered();
+window.frmQuizmeapp.setVisible(true);
+} catch (Exception e) {
+e.printStackTrace();
+}
+}
+});
+
+}
+
+/**
+* Create the application.
+*/
+public thered() {
+initialize();
+}
+
+/**
+* Initialize the contents of the frame.
+*/
+private void initialize() {
+
+frmQuizmeapp = new JFrame();
+frmQuizmeapp.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\bough\\Downloads\\images-removebg-preview.png"));
+frmQuizmeapp.setTitle("QuizMe-App");
+frmQuizmeapp.setBounds(350, 150, 606, 458);
+frmQuizmeapp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+frmQuizmeapp.getContentPane().setLayout(null);
+
+JPanel panel = new JPanel();
+panel.setBackground(new Color(105, 105, 105));
+
+
+panel.setBounds(0, 0, 597, 424);
+frmQuizmeapp.getContentPane().add(panel);
+panel.setLayout(null);
+JRadioButton rdbtnNewRadioButton = new JRadioButton("Pink");
+rdbtnNewRadioButton.setBounds(101, 281, 52, 23);
+panel.add(rdbtnNewRadioButton);
+
+JLabel lblNewLabel_8 = new JLabel("");
+lblNewLabel_8.setIcon(new ImageIcon("C:\\Users\\bough\\Desktop\\theme1.jpg"));
+lblNewLabel_8.setBounds(52, 163, 151, 111);
+panel.add(lblNewLabel_8);
+
+rdbtnNewRadioButton.setVisible(false);
+lblNewLabel_8.setVisible(false);
+
+JLabel lblNewLabel_5 = new JLabel("");
+lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\bough\\Downloads\\button (25).png"));
+lblNewLabel_5.setBounds(10, 355, 151, 58);
+panel.add(lblNewLabel_5);
+lblNewLabel_5.addMouseListener(new MouseAdapter() {
+@Override
+public void mouseClicked(MouseEvent arg0) {
+	System.exit(1);
+
+}
+});
+JLabel lblNewLabel_4 = new JLabel("");
+lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\bough\\Downloads\\button (24).png"));
+lblNewLabel_4.setBounds(143, 99, 222, 44);
+panel.add(lblNewLabel_4);
+lblNewLabel_4.addMouseListener(new MouseAdapter() {
+@Override
+public void mouseClicked(MouseEvent arg0) {
+	NewButton.main(null);
+
+}
+});
+JLabel lblNewLabel_2 = new JLabel("");
+lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\bough\\Downloads\\button (22).png"));
+lblNewLabel_2.setBounds(78, 154, 175, 44);
+panel.add(lblNewLabel_2);
+lblNewLabel_2.addMouseListener(new MouseAdapter() {
+@Override
+public void mouseClicked(MouseEvent arg0) {
+	AboutUs.main(null);
+
+}
+});
+JLabel lblNewLabel = new JLabel("");
+lblNewLabel.setIcon(new ImageIcon("C:\\Users\\bough\\Downloads\\button (23).png"));
+lblNewLabel.setBounds(197, 44, 216, 44);
+panel.add(lblNewLabel);
+lblNewLabel.addMouseListener(new MouseAdapter() {
+@Override
+public void mouseClicked(MouseEvent arg0) {
+	
+	
+	
+	try {
+		
+		mainquiz.main(null);
+	} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	frmQuizmeapp.setVisible(false);
+}
+});
+
+
+JLabel lblNewLabel_7 = new JLabel("");
+lblNewLabel_7.setIcon(new ImageIcon("C:\\Users\\bough\\Desktop\\Untitled-1.png"));
+lblNewLabel_7.setBounds(10, 209, 200, 65);
+panel.add(lblNewLabel_7);
+lblNewLabel_7.addMouseListener(new MouseAdapter() {
+@Override
+public void mouseClicked(MouseEvent arg0) {
+	
+	lblNewLabel.setVisible(false);
+	lblNewLabel_2.setVisible(false);
+	lblNewLabel_4.setVisible(false);
+	lblNewLabel_5.setVisible(false);
+	lblNewLabel_7.setVisible(false);
+	
+	rdbtnNewRadioButton.setVisible(true);
+	lblNewLabel_8.setVisible(true);
+}
+});
+JLabel lblNewLabel_3 = new JLabel("");
+lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\bough\\Desktop\\Untitled-3.png"));
+lblNewLabel_3.setBounds(215, 65, 550, 504);
+panel.add(lblNewLabel_3);
+JLabel lblNewLabel_6 = new JLabel("");
+lblNewLabel_6.setIcon(new ImageIcon("C:\\Users\\bough\\Desktop\\4f971b0d6bacdd50c85333a2af80ddaf.gif"));
+lblNewLabel_6.setBounds(197, 165, 513, 335);
+panel.add(lblNewLabel_6);
+JLabel lblNewLabel_1 = new JLabel("");
+lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\bough\\Desktop\\thered.jpg"));
+lblNewLabel_1.setBounds(0, -12, 626, 448);
+panel.add(lblNewLabel_1);
+
+rdbtnNewRadioButton.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==rdbtnNewRadioButton) {
+			lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\bough\\Desktop\\Untitled-1.jpg"));
+			lblNewLabel.setVisible(true);
+			lblNewLabel_2.setVisible(true);
+			lblNewLabel_4.setVisible(true);
+			lblNewLabel_5.setVisible(true);
+			lblNewLabel_7.setVisible(true);
+			
+			rdbtnNewRadioButton.setVisible(false);
+			lblNewLabel_8.setVisible(false);
+			
+		}
+	}
+});
+}
+public static void setVisible(boolean b) {
+
+}
+}
