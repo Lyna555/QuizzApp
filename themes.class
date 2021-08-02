@@ -1,0 +1,92 @@
+package quizApp;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import java.awt.Toolkit;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JRadioButton;
+import java.awt.Color;
+import javax.swing.JPanel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class themes {
+
+	private JFrame frmQuiz;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					themes window = new themes();
+					window.frmQuiz.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public themes() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmQuiz = new JFrame();
+		frmQuiz.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\bough\\Downloads\\images-removebg-preview.png"));
+		frmQuiz.setTitle("QuizMe-App");
+		frmQuiz.setBounds(100, 100, 606, 458);
+		frmQuiz.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmQuiz.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\bough\\Desktop\\theme1.jpg"));
+		lblNewLabel_2.setBounds(56, 153, 150, 100);
+		frmQuiz.getContentPane().add(lblNewLabel_2);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(106, 264, 52, 23);
+		frmQuiz.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\bough\\Desktop\\thered.jpg"));
+		lblNewLabel_1.setBounds(0, 0, 590, 419);
+		frmQuiz.getContentPane().add(lblNewLabel_1);
+		
+		
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("Pink");
+		rdbtnNewRadioButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==rdbtnNewRadioButton) {
+					lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\bough\\Desktop\\Untitled-1.jpg"));
+					
+				}
+			}
+		});
+		rdbtnNewRadioButton.setBounds(0, 0, 52, 23);
+		panel.add(rdbtnNewRadioButton);
+		rdbtnNewRadioButton.setBackground(Color.ORANGE);
+		
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(184, 113, 46, 14);
+		frmQuiz.getContentPane().add(lblNewLabel);
+		
+		
+		
+	}
+	
+}
